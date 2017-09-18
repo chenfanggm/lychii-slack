@@ -1,0 +1,15 @@
+{
+  "name": "lychii-slack",
+  "version": "0.0.1",
+  "description": "lychii chatbot slack adapter",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chen Fang",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@slack/client": "^3.12.0",
+    "debug": "^3.0.1"
+  }
+}
