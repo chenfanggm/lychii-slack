@@ -1,6 +1,6 @@
 {
   "name": "lychii-slack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "lychii chatbot slack adapter",
   "main": "src/index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 const { RtmClient, WebClient, MemoryDataStore, CLIENT_EVENTS, RTM_EVENTS } = require('@slack/client')
 const SlackMessageFormatter = require('./SlackMessageFormatter')
-const { asToUserMessage } = require('./messageUtils')
+const { asToUserMessage } = require('./MessageUtils')
 const debug = require('debug')('app:client:slack')
 
 
