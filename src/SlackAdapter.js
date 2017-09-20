@@ -52,7 +52,9 @@ class SlackAdapter {
   prepareMessage(metaMsg) {
     const { user, channel, bot_id } = metaMsg
 
-    metaMsg.text = metaMsg.text.trim()
+    if (metaMsg.text && metaMsg.text.trim && typeof metaMsg.text.trim === 'function')
+      metaMsg.text = metaMsg.text.trim()
+
     metaMsg.rawText = metaMsg.text
     metaMsg.text = this.formatter.processIncomingMessageText(metaMsg)
 
