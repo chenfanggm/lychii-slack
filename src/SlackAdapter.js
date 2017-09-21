@@ -41,7 +41,14 @@ class SlackAdapter {
     if (eventName === RTM_EVENTS.MESSAGE) {
       this.rtm.on(RTM_EVENTS.MESSAGE, (metaMsg) => {
         const preparedMetaMsg = this.prepareMessage(metaMsg)
-        debug(`received raw message from ${preparedMetaMsg.user.name || preparedMetaMsg.bot.name || preparedMetaMsg.channel.name}: ${preparedMetaMsg.rawText}`)
+        const userName = (preparedMetaMsg.user && preparedMetaMsg.user.name)
+          || (preparedMetaMsg.bot && preparedMetaMsg.bot.name)
+          || (preparedMetaMsg.channel && preparedMetaMsg.channel.name)
+
+        if (!userName) {
+          debug(`Not get username so populate metaMsg:\n${JSON.stringify(preparedMetaMsg)}`)
+        }
+        debug(`received raw message from ${userName ? userName : 'unknown user'}: ${preparedMetaMsg.rawText}`)
         handler(preparedMetaMsg)
       })
     } else {
